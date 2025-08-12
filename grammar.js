@@ -30,6 +30,7 @@ const SYM_CHAR_NO_DIGIT_NO_COLON =
   regex("[" +
         "a-zA-Z" +
         "!$%&*+\\-./<=>?@^_" +
+        "\\u0080-\\uFFFF" +           // Unicode characters outside ASCII range
         "]");
 // see is_symbol_char_gen in janet's tools/symcharsgen.c
 const SYM_CHAR =
@@ -37,6 +38,7 @@ const SYM_CHAR =
         "0-9:" +
         "a-zA-Z" +
         "!$%&*+\\-./<=>?@^_" +
+        "\\u0080-\\uFFFF" +           // Unicode characters outside ASCII range
         "]");
 
 // strings
@@ -45,8 +47,15 @@ const STRING_DOUBLE_QUOTE_CONTENT =
                       "\\\\" +
                       "\"" +
                       "]"),
+                // Janet 1.38.0 escape sequences
                 regex("\\\\" +
-                      "(.|\\n)"))); // thanks to tree-sitter-haskell
+                      "(" +
+                      "[\"\\\\nrtfev0z]" +        // basic escapes: \" \\ \n \r \t \f \e \v \0 \z
+                      "|x[0-9a-fA-F]{2}" +         // \xHH - single byte hex escape
+                      "|u[0-9a-fA-F]{4}" +         // \uxxxx - 4-digit unicode
+                      "|U[0-9a-fA-F]{6}" +         // \Uxxxxxx - 6-digit unicode
+                      "|.)" +                      // any other character (fallback)
+                      "|\\\\\\n")));
 
 module.exports = grammar({
   name: 'janet_simple',
