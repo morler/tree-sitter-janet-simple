@@ -165,7 +165,7 @@ Maximum Depth Nesting Test
                 (struct_lit
                   (struct_lit
                     (kwd_lit)
-                    (num_lit))))))))))
+                    (num_lit)))))))))))
 
 ========================================================================
 Unicode Edge Cases in Different Contexts

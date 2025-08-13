@@ -32,11 +32,8 @@ PEG patterns with buffer literals
         (kwd_lit)
         (par_tup_lit
           (sym_lit)
-          (sym_lit)
           (kwd_lit)
-          (sym_lit)
           (kwd_lit)
-          (sym_lit)
           (kwd_lit))
         (kwd_lit)
         (par_tup_lit
