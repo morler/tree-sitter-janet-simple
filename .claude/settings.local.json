@@ -3,7 +3,9 @@
     "allow": [
       "mcp__ZhipuSearch__webSearchPro",
       "mcp__TavilySearch__tavily-search",
-      "mcp__TavilySearch__tavily-extract"
+      "mcp__TavilySearch__tavily-extract",
+      "Bash(where:*)",
+      "Bash(git add:*)"
     ],
     "deny": [],
     "ask": []
