@@ -918,9 +918,10 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       if (lookahead == '.') ADVANCE(67);
       if (lookahead == ':') ADVANCE(23);
       if (lookahead == '_') ADVANCE(60);
-      if (lookahead == 'r') ADVANCE(14);
       if (lookahead == 'E' ||
           lookahead == 'e') ADVANCE(17);
+      if (lookahead == 'R' ||
+          lookahead == 'r') ADVANCE(14);
       if (('0' <= lookahead && lookahead <= '9')) ADVANCE(58);
       END_STATE();
     case 56:
@@ -936,9 +937,10 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       ACCEPT_TOKEN(sym__dec);
       if (lookahead == '.') ADVANCE(67);
       if (lookahead == ':') ADVANCE(23);
-      if (lookahead == 'r') ADVANCE(14);
       if (lookahead == 'E' ||
           lookahead == 'e') ADVANCE(17);
+      if (lookahead == 'R' ||
+          lookahead == 'r') ADVANCE(14);
       if (('7' <= lookahead && lookahead <= '9') ||
           lookahead == '_') ADVANCE(60);
       if (('0' <= lookahead && lookahead <= '6')) ADVANCE(58);
@@ -947,9 +949,10 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       ACCEPT_TOKEN(sym__dec);
       if (lookahead == '.') ADVANCE(67);
       if (lookahead == ':') ADVANCE(23);
-      if (lookahead == 'r') ADVANCE(14);
       if (lookahead == 'E' ||
           lookahead == 'e') ADVANCE(17);
+      if (lookahead == 'R' ||
+          lookahead == 'r') ADVANCE(14);
       if (('0' <= lookahead && lookahead <= '9') ||
           lookahead == '_') ADVANCE(60);
       END_STATE();
@@ -957,9 +960,10 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       ACCEPT_TOKEN(sym__dec);
       if (lookahead == '.') ADVANCE(67);
       if (lookahead == ':') ADVANCE(23);
-      if (lookahead == 'x') ADVANCE(13);
       if (lookahead == 'E' ||
           lookahead == 'e') ADVANCE(17);
+      if (lookahead == 'X' ||
+          lookahead == 'x') ADVANCE(13);
       if (('0' <= lookahead && lookahead <= '9') ||
           lookahead == '_') ADVANCE(60);
       END_STATE();
@@ -977,9 +981,10 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       if (lookahead == '.') ADVANCE(70);
       if (lookahead == ':') ADVANCE(96);
       if (lookahead == '_') ADVANCE(66);
-      if (lookahead == 'r') ADVANCE(79);
       if (lookahead == 'E' ||
           lookahead == 'e') ADVANCE(89);
+      if (lookahead == 'R' ||
+          lookahead == 'r') ADVANCE(79);
       if (('0' <= lookahead && lookahead <= '9')) ADVANCE(64);
       if (lookahead == '!' ||
           ('$' <= lookahead && lookahead <= '&') ||
@@ -1013,9 +1018,10 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       ACCEPT_TOKEN(sym__dec);
       if (lookahead == '.') ADVANCE(70);
       if (lookahead == ':') ADVANCE(96);
-      if (lookahead == 'r') ADVANCE(79);
       if (lookahead == 'E' ||
           lookahead == 'e') ADVANCE(89);
+      if (lookahead == 'R' ||
+          lookahead == 'r') ADVANCE(79);
       if (('7' <= lookahead && lookahead <= '9') ||
           lookahead == '_') ADVANCE(66);
       if (('0' <= lookahead && lookahead <= '6')) ADVANCE(64);
@@ -1033,9 +1039,10 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       ACCEPT_TOKEN(sym__dec);
       if (lookahead == '.') ADVANCE(70);
       if (lookahead == ':') ADVANCE(96);
-      if (lookahead == 'r') ADVANCE(79);
       if (lookahead == 'E' ||
           lookahead == 'e') ADVANCE(89);
+      if (lookahead == 'R' ||
+          lookahead == 'r') ADVANCE(79);
       if (('0' <= lookahead && lookahead <= '9') ||
           lookahead == '_') ADVANCE(66);
       if (lookahead == '!' ||
@@ -1052,9 +1059,10 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
       ACCEPT_TOKEN(sym__dec);
       if (lookahead == '.') ADVANCE(70);
       if (lookahead == ':') ADVANCE(96);
-      if (lookahead == 'x') ADVANCE(78);
       if (lookahead == 'E' ||
           lookahead == 'e') ADVANCE(89);
+      if (lookahead == 'X' ||
+          lookahead == 'x') ADVANCE(78);
       if (('0' <= lookahead && lookahead <= '9') ||
           lookahead == '_') ADVANCE(66);
       if (lookahead == '!' ||

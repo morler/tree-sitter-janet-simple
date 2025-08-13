@@ -128,7 +128,7 @@ module.exports = grammar({
     _radix: $ =>
       token(seq(optional(SIGN),
                 RADIX,
-                'r',
+                choice('r', 'R'),
                 choice(seq(optional('.'), RADIX_CHUNK),
                        seq(RADIX_CHUNK, '.', optional(RADIX_CHUNK))),
                 optional(seq('&',
@@ -138,7 +138,7 @@ module.exports = grammar({
 
     _hex: $ =>
       token(seq(optional(SIGN),
-                '0x',
+                choice('0x', '0X'),
                 choice(seq(optional('.'), HEX_CHUNK),
                        seq(HEX_CHUNK, '.', optional(HEX_CHUNK))),
                 optional(seq(choice('p', 'P'),

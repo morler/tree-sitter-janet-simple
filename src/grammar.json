@@ -331,8 +331,17 @@
             ]
           },
           {
-            "type": "STRING",
-            "value": "r"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "r"
+              },
+              {
+                "type": "STRING",
+                "value": "R"
+              }
+            ]
           },
           {
             "type": "CHOICE",
@@ -481,8 +490,17 @@
             ]
           },
           {
-            "type": "STRING",
-            "value": "0x"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "0x"
+              },
+              {
+                "type": "STRING",
+                "value": "0X"
+              }
+            ]
           },
           {
             "type": "CHOICE",

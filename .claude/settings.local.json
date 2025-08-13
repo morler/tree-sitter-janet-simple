@@ -5,7 +5,8 @@
       "mcp__TavilySearch__tavily-search",
       "mcp__TavilySearch__tavily-extract",
       "Bash(where:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(tree-sitter test:*)"
     ],
     "deny": [],
     "ask": []
