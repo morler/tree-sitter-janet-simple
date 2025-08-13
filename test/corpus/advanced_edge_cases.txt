@@ -1,0 +1,185 @@
+========================================================================
+Long String Edge Cases
+========================================================================
+
+``simple``
+```triple```
+````quadruple````
+`````five`````
+
+@``buffer``
+@```triple-buffer```
+@````quadruple-buffer````
+
+------------------------------------------------------------------------
+
+(source
+  (long_str_lit)
+  (long_str_lit)
+  (long_str_lit)
+  (long_str_lit)
+  (long_buf_lit)
+  (long_buf_lit)
+  (long_buf_lit))
+
+========================================================================
+Mixed Quote and Backtick Combinations
+========================================================================
+
+`"quoted in backticks"`
+"``backticks in quotes``"
+`'single quote in backticks'`
+@`"quoted buffer"`
+
+------------------------------------------------------------------------
+
+(source
+  (long_str_lit)
+  (str_lit)
+  (long_str_lit)
+  (long_buf_lit))
+
+========================================================================
+Extreme Symbol Cases  
+========================================================================
+
+a
+aa
+aaa
+-
+--
+---
++
+++
++++
+.
+..
+...
+/
+//
+///
+
+------------------------------------------------------------------------
+
+(source
+  (sym_lit)
+  (sym_lit)
+  (sym_lit)
+  (sym_lit)
+  (sym_lit)
+  (sym_lit)
+  (sym_lit)
+  (sym_lit)
+  (sym_lit)
+  (sym_lit)
+  (sym_lit)
+  (sym_lit)
+  (sym_lit)
+  (sym_lit)
+  (sym_lit))
+
+========================================================================
+Number Zero Variations
+========================================================================
+
+0
+0.
+.0
+0.0
+00
+000
+0x0
+0X0
+2r0
+
+------------------------------------------------------------------------
+
+(source
+  (num_lit)
+  (num_lit)
+  (num_lit)
+  (num_lit)
+  (num_lit)
+  (num_lit)
+  (num_lit)
+  (num_lit)
+  (num_lit))
+
+========================================================================
+Complex Nested Escape Sequences
+========================================================================
+
+"Complex nested: \"inner \\\"deep\\\" quotes\""
+"Tab delimited: \t\t\t"
+"Unicode sequence: \u0041\u0042\u0043\u0044"
+"Mixed escape types: \x41\u0042\U000043\n"
+@"Buffer with escapes: \x41\u0042\n"
+
+------------------------------------------------------------------------
+
+(source
+  (str_lit)
+  (str_lit)
+  (str_lit)
+  (str_lit)
+  (buf_lit))
+
+========================================================================
+Maximum Depth Nesting Test
+========================================================================
+
+(((((((((1)))))))))
+[[[[[[[[[2]]]]]]]]]
+{{{{{{{{{:a 3}}}}}}}}}
+
+------------------------------------------------------------------------
+
+(source
+  (par_tup_lit
+    (par_tup_lit
+      (par_tup_lit
+        (par_tup_lit
+          (par_tup_lit
+            (par_tup_lit
+              (par_tup_lit
+                (par_tup_lit
+                  (par_tup_lit
+                    (num_lit))))))))))
+  (sqr_tup_lit
+    (sqr_tup_lit
+      (sqr_tup_lit
+        (sqr_tup_lit
+          (sqr_tup_lit
+            (sqr_tup_lit
+              (sqr_tup_lit
+                (sqr_tup_lit
+                  (sqr_tup_lit
+                    (num_lit))))))))))
+  (struct_lit
+    (struct_lit
+      (struct_lit
+        (struct_lit
+          (struct_lit
+            (struct_lit
+              (struct_lit
+                (struct_lit
+                  (struct_lit
+                    (kwd_lit)
+                    (num_lit))))))))))
+
+========================================================================
+Unicode Edge Cases in Different Contexts
+========================================================================
+
+:中文关键词
+符号测试Unicode
+"字符串中的Unicode测试"
+@"缓冲区中的Unicode测试"
+
+------------------------------------------------------------------------
+
+(source
+  (kwd_lit)
+  (sym_lit)
+  (str_lit)
+  (buf_lit))

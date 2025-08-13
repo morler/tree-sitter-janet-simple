@@ -1,0 +1,205 @@
+========================================================================
+Empty Structures
+========================================================================
+
+()
+[]
+{}
+@()
+@[]
+@{}
+
+------------------------------------------------------------------------
+
+(source
+  (par_tup_lit)
+  (sqr_tup_lit)
+  (struct_lit)
+  (par_arr_lit)
+  (sqr_arr_lit)
+  (tbl_lit))
+
+========================================================================
+Nested Structures
+========================================================================
+
+[{:a @[1 2 {:b (3 4)}]}]
+{:outer {:inner @{:deep [@(1 2) (3 4)]}}}
+
+------------------------------------------------------------------------
+
+(source
+  (sqr_tup_lit
+    (struct_lit
+      (kwd_lit)
+      (sqr_arr_lit
+        (num_lit)
+        (num_lit)
+        (struct_lit
+          (kwd_lit)
+          (par_tup_lit
+            (num_lit)
+            (num_lit))))))
+  (struct_lit
+    (kwd_lit)
+    (struct_lit
+      (kwd_lit)
+      (tbl_lit
+        (kwd_lit)
+        (sqr_tup_lit
+          (par_arr_lit
+            (num_lit)
+            (num_lit))
+          (par_tup_lit
+            (num_lit)
+            (num_lit)))))))
+
+========================================================================
+Extreme Numbers
+========================================================================
+
+0
+-0
++0
+0.0
+-0.0
++0.0
+999999999999999999999999999
+-999999999999999999999999999
+0xFFFFFFFFFFFFFFFF
+36rZZZZZZZZZZZ
+2r111111111111111111111111111111111
+
+------------------------------------------------------------------------
+
+(source
+  (num_lit)
+  (num_lit)
+  (num_lit)
+  (num_lit)
+  (num_lit)
+  (num_lit)
+  (num_lit)
+  (num_lit)
+  (num_lit)
+  (num_lit)
+  (num_lit))
+
+========================================================================
+Scientific Notation Edge Cases
+========================================================================
+
+1e0
+1E0
+1e+0
+1E-0
+1.0e999
+0x1p0
+0x1P0
+0x1p+0
+0x1P-0
+0x1.0p999
+
+------------------------------------------------------------------------
+
+(source
+  (num_lit)
+  (num_lit)
+  (num_lit)
+  (num_lit)
+  (num_lit)
+  (num_lit)
+  (num_lit)
+  (num_lit)
+  (num_lit)
+  (num_lit))
+
+========================================================================
+Quote Chain Edge Cases
+========================================================================
+
+''''''''a
+~~~~~~~~b
+,,,,,,,,c
+||||||||d
+
+------------------------------------------------------------------------
+
+(source
+  (quote_lit
+    (quote_lit
+      (quote_lit
+        (quote_lit
+          (quote_lit
+            (quote_lit
+              (quote_lit
+                (quote_lit
+                  (sym_lit)))))))))
+  (qq_lit
+    (qq_lit
+      (qq_lit
+        (qq_lit
+          (qq_lit
+            (qq_lit
+              (qq_lit
+                (qq_lit
+                  (sym_lit)))))))))
+  (unquote_lit
+    (unquote_lit
+      (unquote_lit
+        (unquote_lit
+          (unquote_lit
+            (unquote_lit
+              (unquote_lit
+                (unquote_lit
+                  (sym_lit)))))))))
+  (short_fn_lit
+    (short_fn_lit
+      (short_fn_lit
+        (short_fn_lit
+          (short_fn_lit
+            (short_fn_lit
+              (short_fn_lit
+                (short_fn_lit
+                  (sym_lit))))))))))
+
+========================================================================
+Symbols with Special Characters
+========================================================================
+
+!test
+$test
+%test
+&test
+*test
++test
+-test
+.test
+/test
+<test
+=test
+>test
+?test
+@test
+^test
+_test
+
+------------------------------------------------------------------------
+
+(source
+  (sym_lit)
+  (sym_lit)
+  (sym_lit)
+  (sym_lit)
+  (sym_lit)
+  (sym_lit)
+  (sym_lit)
+  (sym_lit)
+  (sym_lit)
+  (sym_lit)
+  (sym_lit)
+  (sym_lit)
+  (sym_lit)
+  (sym_lit)
+  (sym_lit)
+  (sym_lit))

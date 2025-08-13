@@ -1,0 +1,146 @@
+==========================================
+PEG patterns with buffer literals
+==========================================
+
+# Simple PEG pattern with string and buffer literals
+(def simple-peg
+  ~{:main (* :word :space :word)
+    :word (some :a)
+    :space " "})
+
+# PEG with buffer literals in captures
+(def buffer-peg
+  ~{:main (* (capture :word) :space (capture :word))
+    :word @"test"
+    :space " "})
+
+# Complex PEG with nested buffer patterns
+(def complex-peg
+  ~{:start (* :prefix @"pattern" :suffix)
+    :prefix (some (set "abc"))
+    :suffix (some (set "xyz"))})
+
+---
+
+(source
+  (comment)
+  (par_tup_lit
+    (sym_lit)
+    (sym_lit)
+    (qq_lit
+      (struct_lit
+        (kwd_lit)
+        (par_tup_lit
+          (sym_lit)
+          (sym_lit)
+          (kwd_lit)
+          (sym_lit)
+          (kwd_lit)
+          (sym_lit)
+          (kwd_lit))
+        (kwd_lit)
+        (par_tup_lit
+          (sym_lit)
+          (kwd_lit))
+        (kwd_lit)
+        (str_lit))))
+  (comment)
+  (par_tup_lit
+    (sym_lit)
+    (sym_lit)
+    (qq_lit
+      (struct_lit
+        (kwd_lit)
+        (par_tup_lit
+          (sym_lit)
+          (par_tup_lit
+            (sym_lit)
+            (kwd_lit))
+          (kwd_lit)
+          (par_tup_lit
+            (sym_lit)
+            (kwd_lit)))
+        (kwd_lit)
+        (buf_lit)
+        (kwd_lit)
+        (str_lit))))
+  (comment)
+  (par_tup_lit
+    (sym_lit)
+    (sym_lit)
+    (qq_lit
+      (struct_lit
+        (kwd_lit)
+        (par_tup_lit
+          (sym_lit)
+          (kwd_lit)
+          (buf_lit)
+          (kwd_lit))
+        (kwd_lit)
+        (par_tup_lit
+          (sym_lit)
+          (par_tup_lit
+            (sym_lit)
+            (str_lit)))
+        (kwd_lit)
+        (par_tup_lit
+          (sym_lit)
+          (par_tup_lit
+            (sym_lit)
+            (str_lit)))))))
+
+==========================================
+PEG with long buffer literals
+==========================================
+
+# PEG using long buffer literals
+(def long-buffer-peg
+  ~{:main @``This is a long buffer pattern``
+    :alt @```Multiple backticks```})
+
+---
+
+(source
+  (comment)
+  (par_tup_lit
+    (sym_lit)
+    (sym_lit)
+    (qq_lit
+      (struct_lit
+        (kwd_lit)
+        (long_buf_lit)
+        (kwd_lit)
+        (long_buf_lit)))))
+
+==========================================
+PEG special forms with buffers
+==========================================
+
+# Using PEG special forms with buffer literals
+(def special-peg
+  ~{:main (capture @"buffer")
+    :alt (replace @"old" @"new")
+    :group (group @"content")})
+
+---
+
+(source
+  (comment)
+  (par_tup_lit
+    (sym_lit)
+    (sym_lit)
+    (qq_lit
+      (struct_lit
+        (kwd_lit)
+        (par_tup_lit
+          (sym_lit)
+          (buf_lit))
+        (kwd_lit)
+        (par_tup_lit
+          (sym_lit)
+          (buf_lit)
+          (buf_lit))
+        (kwd_lit)
+        (par_tup_lit
+          (sym_lit)
+          (buf_lit))))))
